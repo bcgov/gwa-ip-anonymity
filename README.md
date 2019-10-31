@@ -30,7 +30,7 @@ The plugin accepts the following fields.
 |Name     |Type  |Default |Description                                                        |
 |---------|------|--------|-------------------------------------------------------------------|
 |ipv4_mask|number|0       |The value (0-255) to mask the last part of an IPV4 address         |
-|ipvd_mask|number|0       |The value (1-4 hex digits) to mask the last part of an IPV6 address|
+|ipv6_mask|number|0       |The value (1-4 hex digits) to mask the last part of an IPV6 address|
 
 # License
 
