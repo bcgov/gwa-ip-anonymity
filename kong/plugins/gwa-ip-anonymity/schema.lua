@@ -21,8 +21,10 @@ local function validate_ipv6(value)
 end
 
 return {
-  no_consumer = true,
   fields = {
+    {
+      consumer = typedefs.no_consumer
+    },
     ipv4_mask = {
       type = "number",
       default = 0,
