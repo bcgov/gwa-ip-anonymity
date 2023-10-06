@@ -1,3 +1,5 @@
+local typedefs = require "kong.db.schema.typedefs"
+
 local re_match= ngx.re.match
 
 local function validate_ipv4(value)
@@ -21,6 +23,7 @@ local function validate_ipv6(value)
 end
 
 return {
+  name = "gwa-ip-anonymity"
   fields = {
     {
       consumer = typedefs.no_consumer
