@@ -1,6 +1,7 @@
-local BasePlugin = require "kong.plugins.base_plugin"
-
-local GwaIpAnonymousHandler = BasePlugin:extend()
+local GwaIpAnonymousHandler = {
+  VERSION  = "1.0.0",
+  PRIORITY = 10000,
+}
 
 function anonymizeIps(conf, ips)
   if ips == nil or type(ips) ~= "string" then
@@ -24,17 +25,10 @@ function anonymizeHeaderIps(conf, name)
   return ips
 end
 
-function GwaIpAnonymousHandler:new()
-  GwaIpAnonymousHandler.super.new(self, "gwa-ip-anonymity")
-end
-
 function GwaIpAnonymousHandler:access(conf)
-  GwaIpAnonymousHandler.super.access(self)
   anonymizeHeaderIps(conf, 'Forwarded')
   anonymizeHeaderIps(conf, 'x-forwarded-for')
   ngx.var.upstream_x_forwarded_for = anonymizeIps(conf, ngx.var.upstream_x_forwarded_for)
 end
-
-GwaIpAnonymousHandler.PRIORITY = 10000
 
 return GwaIpAnonymousHandler
