@@ -23,7 +23,6 @@ local function validate_ipv6(value)
 end
 
 return {
-  name = "gwa-ip-anonymity"
   fields = {
     {
       consumer = typedefs.no_consumer
