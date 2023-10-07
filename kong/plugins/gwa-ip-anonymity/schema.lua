@@ -29,18 +29,24 @@ return {
       consumer = typedefs.no_consumer
     },
     {
-      ipv4_mask = {
-        type = "number",
-        default = 0,
-        custom_validator = validate_ipv4
+      config = {
+        type = "record",
+        fields = {
+          {
+            ipv4_mask = {
+              type = "number",
+              default = 0,
+              custom_validator = validate_ipv4
+            }
+          },
+          {
+            ipv6_mask = {
+              type = "number",
+              default = 0,
+              custom_validator = validate_ipv6
+            }
+          }
+        }
       }
-    },
-    {
-      ipv6_mask = {
-        type = "number",
-        default = 0,
-        custom_validator = validate_ipv6
-      }
-    }
   }
 }
