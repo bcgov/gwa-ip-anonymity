@@ -28,15 +28,19 @@ return {
     {
       consumer = typedefs.no_consumer
     },
-    ipv4_mask = {
-      type = "number",
-      default = 0,
-      func = validate_ipv4
+    {
+      ipv4_mask = {
+        type = "number",
+        default = 0,
+        func = validate_ipv4
+      }
     },
-    ipv6_mask = {
-      type = "number",
-      default = 0,
-      func = validate_ipv6
+    {
+      ipv6_mask = {
+        type = "number",
+        default = 0,
+        func = validate_ipv6
+      }
     }
   }
 }
