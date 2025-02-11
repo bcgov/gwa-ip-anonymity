@@ -3,7 +3,7 @@ local BasePlugin = require "kong.plugins.base_plugin"
 local GwaIpAnonymousHandler = BasePlugin:extend()
 
 function anonymizeIps(conf, ips)
-  if ips == nil then
+  if ips == nil or type(ips) ~= "string" then
     return nil
   else
     -- ipv6
@@ -16,7 +16,6 @@ function anonymizeIps(conf, ips)
     return ips
   end
 end
-
 
 function anonymizeHeaderIps(conf, name)
   local ips = ngx.req.get_headers()[name];
